@@ -13,6 +13,8 @@ const client = new Client({
 	messageSweepInterval: 60
 });
 
+client.login(process.env.CLIENT_TOKEN);
+
 client.commands = new Enmap();
 client.aliases = new Enmap();
 

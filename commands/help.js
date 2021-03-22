@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { owner, prefix, embedColor, discord } = require('../config');
 const { noBotPerms } = require('../utils/errors');
 
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
         if (!cmdObj) return;
         let cmdHelp = cmdObj.help;
 
-        let cmdHelpEmbed = new RichEmbed()
+        let cmdHelpEmbed = new MessageEmbed()
             .setTitle(`${cmdHelp.name} | Help Information`)
             .setDescription(cmdHelp.description)
             .addField('Usage', `\`${cmdHelp.usage}\``, true)
@@ -33,12 +33,12 @@ exports.run = async (client, message, args) => {
         return '`' + cmd + '`';
     });
 
-    const helpEmbed = new RichEmbed()
-        .setTitle('Help Information')
-        .setDescription(`View help information for ${client.user}. \n (Do \`${prefix + cmdName} <command>\` for specific help information).`)
-        .addField('Current Prefix', prefix)
-        .addField('Bot Commands', helpCmds.join(' | '))
-        .addField('Found an issue?', `Please report any issues to <@${owner}> via the Support Discord: ${discord}.`)
+    const helpEmbed = new MessageEmbed()
+        .setTitle('Ajuda')
+        .setDescription(`Veja informações utilizando nosso bot ${client.user}. \n (Execute o commando \`${prefix + cmdName} <command>\` para alguma ajuda em um comando especifico).`)
+        .addField('Prefixo atual', prefix)
+        .addField('Commandos do bot', helpCmds.join(' | '))
+        .addField('Encontrou algum problema?', `Por favor, reporte o problema para <@${owner}> via mensagem direta no discord`)
         .setColor(embedColor);
 
     message.channel.send(helpEmbed);

@@ -10,10 +10,10 @@ exports.run = async (_, message, args) => {
     let lastestRaces = "```POSIÇÃO|MELHOR T.|PONTOS|PISTA \n  ";
     for (let i = 0; i < results.length; i++) {
         if (i < 5) {
-            lastestRaces += `${results[i].position.toString().length == 1 ? `0${results[i].position}` : results[i].position}    ${results[i].best_time == '-' ? '--------' : results[i].best_time}   ${results[i].points.toString().length == 1 ? `0${results[i].points}` : results[i].points}    ${results[i].track}\n  `
+            lastestRaces += `${results[i].position.toString().length == 1 ? `0${results[i].position}` : results[i].position}    ${results[i].best_time == '-' ? '--------' : results[i].best_time}   ${results[i].points.toString().length == 1 ? `0${results[i].points}` : results[i].points}    ${results[i].track}\n  `;
         }
     }
-    lastestRaces += "```"
+    lastestRaces += "```";
 
     const exampleEmbed = new MessageEmbed()
         .setColor('#0099ff')
@@ -30,9 +30,9 @@ exports.run = async (_, message, args) => {
                 name: "ÚLTIMAS 5 CORRIDAS",
                 value: lastestRaces
             }
-        )
+        );
     message.channel.send(exampleEmbed);
-}
+};
 
 exports.help = {
     name: 'piloto',

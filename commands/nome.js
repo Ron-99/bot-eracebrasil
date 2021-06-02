@@ -2,13 +2,13 @@ const axios = require('axios');
 exports.run = async (client, message, args) => {
 
     if (!message.member.roles.cache.some(role => role.name === 'Presidente da E-Race' || role.name === 'Vice Presidente da E-Race'))
-        return;
+        {return;}
 
     const data = {
         name: args[0],
         newName: args[1],
         updated_by: 3
-    }
+    };
     const { data: driver, status } = await axios.patch(`https://api.e-racebrasil.com.br/driver/name/newname`, data);
 
     if (status === 200) {
